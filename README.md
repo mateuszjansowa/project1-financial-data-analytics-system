@@ -1,8 +1,8 @@
-# Expense Tracker
+# Financial Data Analytics System
 
 ## Overview
 
-The **Expense Tracker** is a console-based Java application that allows users to manage their personal expenses efficiently. By utilizing advanced Java features like Streams, Collections, and Generics, this project demonstrates modern Java programming practices while providing a practical and functional tool.
+The **Financial Data Analytics System** is a console-based Java application that allows users to manage their personal expenses efficiently. By utilizing advanced Java features like Streams, Collections, and Generics, this project demonstrates modern Java programming practices while providing a practical and functional tool.
 
 ## Features
 
