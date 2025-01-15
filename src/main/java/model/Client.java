@@ -6,14 +6,13 @@ public class Client {
     private final ExpenseCategory category;
     private final double amount;
 
-    public Client() {
-        this.firstName = "-";
-        this.lastName = "-";
-        this.category = null;
-        this.amount = 0;
-    }
+    public Client(String firstName, String lastName, ExpenseCategory category, double amount) throws IllegalArgumentException {
+        if (firstName == null || firstName.isEmpty() ||
+                lastName == null || lastName.isEmpty() ||
+                category == null || amount < 0) {
+            throw new IllegalArgumentException("Invalid argument for creating Client");
+        }
 
-    public Client(String firstName, String lastName, ExpenseCategory category, double amount) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.category = category;
