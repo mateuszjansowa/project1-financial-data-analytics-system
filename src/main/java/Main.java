@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class Main {
     private static final String INPUT_FILE = Paths.get("src", "main", "resources", "input", "expenses.csv").toString();
-    private static final String CATEGORY_OUTPUT = Paths.get("src", "main", "resources", "outpus", "categoryData.json").toString();
+    private static final String CATEGORY_OUTPUT = Paths.get("src", "main", "resources", "output", "categoryData.json").toString();
     private static final String HIGH_SPENDERS_OUTPUT = Paths.get("src", "main", "resources", "output", "highSpenders.txt").toString();
 
     public static void main(String[] args) {
