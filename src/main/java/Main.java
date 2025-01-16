@@ -1,7 +1,7 @@
 import model.Client;
 import model.ExpenseCategory;
 import service.ExpenseProcessor;
-import service.RaportGenerator;
+import service.ReportGenerator;
 import util.CsvReader;
 
 import java.util.List;
@@ -27,8 +27,7 @@ public class Main {
                 System.out.println("HighSpender: " + highSpender);
             }
 
-            System.out.println("=======Raport Generator======");
-            RaportGenerator raportGenerator = new RaportGenerator(categoryData, clients);
+            ReportGenerator raportGenerator = new ReportGenerator(categoryData, clients);
             raportGenerator.generateCategoryReport("D:\\coding\\Java\\FinancialDataAnalyticsSystem\\src\\main\\resources\\output\\categoryData.json");
             raportGenerator.generateHighSpendersReport("D:\\coding\\Java\\FinancialDataAnalyticsSystem\\src\\main\\resources\\output\\highSpenders.txt");
         } catch (Exception e) {

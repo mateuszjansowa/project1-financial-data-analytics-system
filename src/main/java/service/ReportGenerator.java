@@ -10,11 +10,11 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-public class RaportGenerator {
+public class ReportGenerator {
     private Map<ExpenseCategory, Double> categoryData;
     private List<Client> clients;
 
-    public RaportGenerator(Map<ExpenseCategory, Double> categoryData, List<Client> clients) {
+    public ReportGenerator(Map<ExpenseCategory, Double> categoryData, List<Client> clients) {
         if (categoryData == null || categoryData.isEmpty()) {
             throw new IllegalArgumentException("Expense category data is null or empty");
         }
@@ -28,18 +28,27 @@ public class RaportGenerator {
         this.clients = clients;
     }
 
-    public void generateCategoryReport(String filePath) {
+    private void writeToFile(String filePath, String content) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            JSONObject json = new JSONObject(categoryData);
-            writer.write(json.toString());
+            writer.write(content);
         } catch (IOException e) {
-            System.out.println("Issue while writing category report to file");
+            System.out.println("Issue while writing to file: " + filePath);
             e.printStackTrace();
         }
-
     }
 
-    public void generateHighSpendersReport(String filepath) {
-        System.out.println(clients);
+    public void generateCategoryReport(String filePath) {
+        JSONObject json = new JSONObject(categoryData);
+        writeToFile(filePath, json.toString(4));
+    }
+
+    public void generateHighSpendersReport(String filePath) {
+        StringBuilder report = new StringBuilder();
+
+        for (Client client : clients) {
+            report.append(client.toString()).append("\n");
+        }
+
+        writeToFile(filePath, report.toString());
     }
 }
